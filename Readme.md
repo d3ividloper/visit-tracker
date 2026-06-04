@@ -1,4 +1,4 @@
-# Tree Planting Tracker
+# Tree Planting :: Visit Tracker
 
 A Symfony + Vue + Docker application that tracks customer visits and rewards them by planting trees.
 
@@ -44,9 +44,7 @@ Persistence:
 
 ### Frontend
 
-Vue 3
-Vite
-Chart.js
+Vue 3 + Vite + Chart.js
 
 ---
 
@@ -88,7 +86,7 @@ Meaning: 5 visits = 1 Tree.
 
 ## API
 ### Register visit
-POST /api/visits
+***POST /api/visits***
 
 Request:
 
@@ -106,7 +104,7 @@ Response:
 ```
 
 ### Hourly Visits
-GET /api/dashboard/hourly-visits
+***GET /api/dashboard/hourly-visits***
 
 Response:
 ```JSON
@@ -150,7 +148,7 @@ make help
 * No authentication required.
 * One visit equals one customer visit.
 * No matter which shop is visited so I ommit use this entity.
-* SQLite is sufficient as persisting destination.
+* SQLite is sufficient as persisting layer.
 * Tree Planting is only represented by a counter due to test specifications.
 
 
