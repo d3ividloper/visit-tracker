@@ -56,12 +56,7 @@ Vue 3 + Vite + Chart.js
 make start
 ```
 
-### Install 1st use dependencies
-```bash
-make install
-```
-
-### Run migrations
+### Create SQLite database
 ```bash
 make migrate
 ```
@@ -127,12 +122,12 @@ Response:
 ## Database inspection
 ### Customers:
 ```bash
-make db-customers
+make db-show-customers
 ```
 
 ### Visits:
 ```bash
-make db-visits
+make db-show-visits
 ```
 
 >[!NOTE]

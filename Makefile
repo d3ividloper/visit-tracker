@@ -14,6 +14,9 @@ stop: ## Stop the project
 logs: ## Show project logs
 	@docker compose logs -f
 
+clean: ## Remove containers and images
+	@docker system prune -a
+
 be-shell: ## Enter the backend shell
 	@docker compose exec backend sh
 
@@ -25,10 +28,6 @@ composer-install: ## Install composer dependencies
 
 npm-install: ## Install npm dependencies
 	@docker compose exec frontend npm install
-
-install: ## Install all dependencies FE and BE (Recommended on 1st Run)
-	make composer-install
-	make npm-install
 
 migrate: ## Run migrations
 	@docker compose exec backend php bin/console doctrine:migrations:migrate --no-interaction
@@ -42,8 +41,11 @@ migration-list: ## Show migration list
 test: ## Run tests
 	@docker compose exec backend php bin/phpunit
 
-db-visits: ## Show table visits content
+db-remove: ## Remove database
+	@docker compose exec backend rm -rf var/data.db
+
+db-show-visits: ## Show table visits content
 	@docker compose exec backend sqlite3 var/data.db "SELECT * FROM visits;"
 
-db-customers: ## Show table customers content
+db-show-customers: ## Show table customers content
 	@docker compose exec backend sqlite3 var/data.db "SELECT * FROM customers;"
