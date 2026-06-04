@@ -32,7 +32,9 @@ final readonly class DoctrineHourlyVisitReadRepository implements HourlyVisitRea
         array_walk($hourlyVisits, function(&$element) {
             $date = new \DateTime($element['hour'], new \DateTimeZone('UTC'));
             $date->setTimeZone(new \DateTimeZone($this->defaultTimezone));
-            $element['hour'] = $date->format('Y-m-d H:00');
+            $startHour = $date->format('d-m-Y H:00');
+            $endHour = $date->modify('+1 hour')->format('H:00');
+            $element['hour'] = $startHour . ' to '. $endHour;
         });
 
         return $hourlyVisits;
