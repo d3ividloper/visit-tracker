@@ -1,0 +1,30 @@
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+
+    working_dir: /app
+
+    volumes:
+      - ./ta-be:/app
+
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+
+    working_dir: /app
+
+    volumes:
+      - ./ta-fe:/app
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend
