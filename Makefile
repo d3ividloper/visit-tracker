@@ -1,3 +1,6 @@
+# Default target
+.DEFAULT_GOAL := help
+
 .PHONY: start stop logs backend-shell frontend-shell composer-install npm-install migrate migration-diff test db-visits db-customers
 
 help: ## Show available commands
